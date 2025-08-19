@@ -1,0 +1,115 @@
+{
+  "mcpServers": {
+    "hybrid-cover-agent": {
+      "command": "python",
+      "args": ["-m", "cover_agent.mcp.hybrid_server"],
+      "env": {
+        "PYTHONPATH": "."
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "analyze_code_context",
+      "description": "Analyze code context using LSP and provide detailed insights for test generation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_file": {
+            "type": "string",
+            "description": "Path to the source file to analyze"
+          },
+          "project_root": {
+            "type": "string",
+            "description": "Path to the project root"
+          }
+        },
+        "required": ["source_file", "project_root"]
+      }
+    },
+    {
+      "name": "get_coverage_gaps",
+      "description": "Get detailed coverage gaps and uncovered lines for test generation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_file": {
+            "type": "string",
+            "description": "Path to the source file"
+          },
+          "test_file": {
+            "type": "string",
+            "description": "Path to the test file"
+          },
+          "project_root": {
+            "type": "string",
+            "description": "Path to the project root"
+          }
+        },
+        "required": ["source_file", "test_file", "project_root"]
+      }
+    },
+    {
+      "name": "analyze_test_structure",
+      "description": "Analyze existing test structure and identify improvement opportunities",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "test_file": {
+            "type": "string",
+            "description": "Path to the test file"
+          },
+          "project_root": {
+            "type": "string",
+            "description": "Path to the project root"
+          }
+        },
+        "required": ["test_file", "project_root"]
+      }
+    },
+    {
+      "name": "get_test_generation_context",
+      "description": "Get comprehensive context for test generation including code structure, coverage gaps, and existing tests",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_file": {
+            "type": "string",
+            "description": "Path to the source file"
+          },
+          "test_file": {
+            "type": "string",
+            "description": "Path to the test file"
+          },
+          "project_root": {
+            "type": "string",
+            "description": "Path to the project root"
+          }
+        },
+        "required": ["source_file", "test_file", "project_root"]
+      }
+    },
+    {
+      "name": "validate_test_coverage",
+      "description": "Validate test coverage after test generation and provide improvement suggestions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_file": {
+            "type": "string",
+            "description": "Path to the source file"
+          },
+          "test_file": {
+            "type": "string",
+            "description": "Path to the test file"
+          },
+          "project_root": {
+            "type": "string",
+            "description": "Path to the project root"
+          }
+        },
+        "required": ["source_file", "test_file", "project_root"]
+      }
+    }
+  ]
+}

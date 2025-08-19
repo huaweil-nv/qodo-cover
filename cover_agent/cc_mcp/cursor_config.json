@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "cover-agent": {
+      "command": "python",
+      "args": ["-m", "cover_agent.cc_mcp.hybrid_server"],
+      "env": {
+        "PYTHONPATH": "."
+      }
+    }
+  }
+}
